@@ -22,7 +22,10 @@ export default function CategoryPage({ news, category }) {
 export async function getServerSideProps(context) {
   const { category } = context.params;
   const res = await fetch(
-    `https://newsapi.org/v2/top-headlines?category=${category}&country=us&apiKey=${process.env.NEWS_API_KEY}`
+    `https://newsapi.org/v2/top-headlines?category=${category}&country=us&apiKey=${process.env.NEWS_API_KEY}`,
+    {
+      method: 'GET', // Explicitly specify GET method
+    }
   );
   const news = await res.json();
   return { props: { news, category } };

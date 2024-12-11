@@ -26,8 +26,11 @@ const Home = () => {
       } else {
         url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${process.env.NEWS_API_KEY}`;
       }
-
-      const res = await fetch(url);
+  
+      const res = await fetch(url, {
+        method: 'GET', // Explicitly specifying GET method
+      });
+  
       const data = await res.json();
       setNews(data.articles || []);
     } catch (error) {
@@ -36,6 +39,7 @@ const Home = () => {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     setSearchTerm('');
