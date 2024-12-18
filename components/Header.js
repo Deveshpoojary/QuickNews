@@ -13,7 +13,7 @@ const Header = ({ onCategoryChange }) => {
   ];
 
   return (
-    <header className="bg-gray-800 text-white p-4">
+    <header className="bg-gray-800 text-white p-4 sticky top-0 z-50 shadow-md">
       <nav className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <h1 className="text-xl md:text-2xl font-bold">QuickNews</h1>
